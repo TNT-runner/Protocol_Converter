@@ -12,10 +12,6 @@
 
 void SYS_Init(void)
 {
-    /*---------------------------------------------------------------------------------------------------------*/
-    /* Init System Clock                                                                                       */
-    /*---------------------------------------------------------------------------------------------------------*/
-
     /* Enable HXT clock */
     CLK_EnableXtalRC(CLK_PWRCTL_HXTEN_Msk);
 
@@ -28,40 +24,31 @@ void SYS_Init(void)
     /* Set core clock to 200MHz */
     CLK_SetCoreClock(200000000);
 
-    /* Enable UART0 module clock */
-    CLK_EnableModuleClock(UART0_MODULE);
-
-    /* Select UART0 module clock source as HIRC and UART0 module clock divider as 1 */
-    CLK_SetModuleClock(UART0_MODULE, CLK_CLKSEL1_UART0SEL_HIRC, CLK_CLKDIV0_UART0(1));
-
-    /* Set GPB multi-function pins for UART0 RXD and TXD */
-    SET_UART0_RXD_PB12();
-    SET_UART0_TXD_PB13();
+		CLK->AHBCLK0 |= CLK_AHBCLK0_GPACKEN_Msk | CLK_AHBCLK0_GPBCKEN_Msk | CLK_AHBCLK0_GPCCKEN_Msk | CLK_AHBCLK0_GPDCKEN_Msk |
+									CLK_AHBCLK0_GPECKEN_Msk | CLK_AHBCLK0_GPFCKEN_Msk | CLK_AHBCLK0_GPGCKEN_Msk | CLK_AHBCLK0_GPHCKEN_Msk;
+		CLK->AHBCLK1 |= CLK_AHBCLK1_GPICKEN_Msk | CLK_AHBCLK1_GPJCKEN_Msk;
 }
-
-/*
- * This is a template project for M460 series MCU. Users could based on this project to create their
- * own application without worry about the IAR/Keil project settings.
- *
- * This template application uses external crystal as HCLK source and configures UART0 to print out
- * "Hello World", users may need to do extra system configuration based on their system design.
- */
 
 int main()
 {
-
+		uint32_t i = 0;
     /* Unlock protected registers */
     SYS_UnlockReg();
 
     SYS_Init();
-    
-    /* Init UART to 115200-8n1 for print message */
-    UART_Open(UART0, 115200);
-    
-    /* Connect UART to PC, and open a terminal tool to receive following message */
-    printf("Hello World\n");
+	
+		GPIO_SetMode(PA, BIT10, GPIO_MODE_OUTPUT);
 
     /* Got no where to go, just loop forever */
-    while(1);
+    while(1)
+		{
+				PA10 = 0;
+
+				for(i=0;i<5000000;i++);
+
+				PA10 = 1;
+
+				for(i=0;i<5000000;i++);
+		}
 
 }
