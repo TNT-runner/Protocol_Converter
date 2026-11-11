@@ -571,10 +571,10 @@ static uint32_t CANFD_CalculateTimingValues(CANFD_T *psCanfd, uint32_t u32Nomina
 {
     int i32Nclk;
     int i32Nclk2;
-    int i32Ntq;
+    uint32_t i32Ntq;
     int i32Dclk;
     int i32Dclk2;
-    int i32Dtq;
+    uint32_t i32Dtq;
 
     /* observe baud rate maximums */
     if (u32NominalBaudRate > MAX_NOMINAL_BAUDRATE) u32NominalBaudRate = MAX_NOMINAL_BAUDRATE;

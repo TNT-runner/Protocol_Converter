@@ -48,7 +48,7 @@ typedef enum _RNG_KEY_SIZE
  */
 static void RNG_BasicConfig()
 {
-    int32_t i;
+    int32_t i = 0;
     int32_t timeout = 0x1000000;
 
     /* Enable TRNG & PRNG */
@@ -186,7 +186,7 @@ int32_t RNG_Random(uint32_t *pu32Buf, int32_t nWords)
  *  @details    The function is initial funciton of RNG_ECDSA function.
  *              This funciton should be called before calling RNG_ECDSA().
  */
-int32_t RNG_ECDSA_Init(uint32_t u32KeySize, uint32_t au32ECC_N[18])
+int32_t RNG_ECDSA_Init(uint32_t au32ECC_N[18])
 {
     int32_t i;
     
@@ -258,7 +258,7 @@ int32_t RNG_ECDSA(uint32_t u32KeySize)
  *  @details    The function is initial function of RNG_ECDH.
  *              
  */
-int32_t RNG_ECDH_Init(uint32_t u32KeySize, uint32_t au32ECC_N[18])
+int32_t RNG_ECDH_Init(uint32_t au32ECC_N[18])
 {
     int32_t i;
     

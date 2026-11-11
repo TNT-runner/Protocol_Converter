@@ -33,7 +33,7 @@
  * @return The nearest unit time in nano second.
  * @details This function is used to Configure EPWM capture and get the nearest unit time.
  */
-uint32_t EPWM_ConfigCaptureChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32UnitTimeNsec, uint32_t u32CaptureEdge)
+uint32_t EPWM_ConfigCaptureChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32UnitTimeNsec)
 {
     uint32_t u32Src;
     uint32_t u32EPWMClockSrc;
@@ -371,7 +371,7 @@ void EPWM_DisableADCTriggerPrescale(EPWM_T *epwm, uint32_t u32ChannelNum)
  * @return None
  * @details This function is used to clear selected channel trigger ADC flag.
  */
-void EPWM_ClearADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition)
+void EPWM_ClearADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum)
 {
     (epwm)->STATUS = (EPWM_STATUS_EADCTRGF0_Msk << u32ChannelNum);
 }
@@ -435,7 +435,7 @@ void EPWM_DisableDACTrigger(EPWM_T *epwm, uint32_t u32ChannelNum)
  * @return None
  * @details This function is used to clear selected channel trigger DAC flag.
  */
-void EPWM_ClearDACTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition)
+void EPWM_ClearDACTriggerFlag(EPWM_T *epwm)
 {
     (epwm)->STATUS = EPWM_STATUS_DACTRGF_Msk;
 }
@@ -450,7 +450,7 @@ void EPWM_ClearDACTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32
  * @retval 1 The specified channel trigger DAC to start of conversion flag is set
  * @details This function is used to get selected channel trigger DAC flag.
  */
-uint32_t EPWM_GetDACTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum)
+uint32_t EPWM_GetDACTriggerFlag(EPWM_T *epwm)
 {
     return (((epwm)->STATUS & EPWM_STATUS_DACTRGF_Msk)?1UL:0UL);
 }
@@ -879,7 +879,7 @@ uint32_t EPWM_GetFaultBrakeIntFlag(EPWM_T *epwm, uint32_t u32BrakeSource)
  * @return None
  * @details This function is used to enable period interrupt of selected channel.
  */
-void EPWM_EnablePeriodInt(EPWM_T *epwm, uint32_t u32ChannelNum,  uint32_t u32IntPeriodType)
+void EPWM_EnablePeriodInt(EPWM_T *epwm, uint32_t u32ChannelNum)
 {
     (epwm)->INTEN0 |= ((1UL << EPWM_INTEN0_PIEN0_Pos) << u32ChannelNum);
 }

@@ -50,10 +50,10 @@ static void SwitchNBitOutput(uint32_t u32NBit);
 static void SwitchNBitInput(uint32_t u32NBit);
 static int32_t spim_write(uint8_t pu8TxBuf[], uint32_t u32NTx);
 static int32_t spim_read(uint8_t pu8RxBuf[], uint32_t u32NRx);
-static void SPIM_WriteStatusRegister(uint8_t dataBuf[], uint32_t u32NTx, uint32_t u32NBit);
+static void SPIM_WriteStatusRegister(uint8_t dataBuf[],uint32_t u32NBit);
 static void SPIM_ReadStatusRegister(uint8_t dataBuf[], uint32_t u32NRx, uint32_t u32NBit);
 static void SPIM_ReadStatusRegister2(uint8_t dataBuf[], uint32_t u32NRx, uint32_t u32NBit);
-static void SPIM_WriteStatusRegister2(uint8_t dataBuf[], uint32_t u32NTx, uint32_t u32NBit);
+static void SPIM_WriteStatusRegister2(uint8_t dataBuf[],uint32_t u32NBit);
 static void SPIM_ReadStatusRegister3(uint8_t dataBuf[], uint32_t u32NRx, uint32_t u32NBit);
 static void SPIM_ReadSecurityRegister(uint8_t dataBuf[], uint32_t u32NRx, uint32_t u32NBit);
 static int spim_is_write_done(uint32_t u32NBit);
@@ -313,7 +313,7 @@ static void SPIM_ReadStatusRegister(uint8_t dataBuf[], uint32_t u32NRx, uint32_t
   * @param      u32NBit     N-bit transmit/receive.
   * @return     None.
   */
-static void SPIM_WriteStatusRegister(uint8_t dataBuf[], uint32_t u32NTx, uint32_t u32NBit)
+static void SPIM_WriteStatusRegister(uint8_t dataBuf[],uint32_t u32NBit)
 {
     uint8_t cmdBuf[] = {OPCODE_WRSR, 0x00U};     /* 1-byte Write Status Register #1 command + 1-byte data. */
 
@@ -351,7 +351,7 @@ static void SPIM_ReadStatusRegister2(uint8_t dataBuf[], uint32_t u32NRx, uint32_
   * @param      u32NBit     N-bit transmit/receive.
   * @return     None.
   */
-static void SPIM_WriteStatusRegister2(uint8_t dataBuf[], uint32_t u32NTx, uint32_t u32NBit)
+static void SPIM_WriteStatusRegister2(uint8_t dataBuf[],uint32_t u32NBit)
 {
     uint8_t cmdBuf[3] = {OPCODE_WRSR, 0U, 0U};
 
@@ -560,7 +560,7 @@ int SPIM_InitFlash(int clrWP)
         uint8_t dataBuf[] = {0x00U};
 
         spim_set_write_enable(1, 1UL);           /* Clear Block Protect. */
-        SPIM_WriteStatusRegister(dataBuf, sizeof (dataBuf), 1U);
+        SPIM_WriteStatusRegister(dataBuf,1U);
         spim_wait_write_done(1UL);
     }
 
@@ -698,7 +698,7 @@ void SPIM_SetQuadEnable(int isEn, uint32_t u32NBit)
         }
 
         spim_set_write_enable(1, u32NBit);   /* Write Enable.    */
-        SPIM_WriteStatusRegister2(dataBuf, sizeof (dataBuf), u32NBit);
+        SPIM_WriteStatusRegister2(dataBuf,u32NBit);
         spim_wait_write_done(u32NBit);
 
         SPIM_ReadStatusRegister(&dataBuf[0], 1UL, u32NBit);
@@ -711,7 +711,7 @@ void SPIM_SetQuadEnable(int isEn, uint32_t u32NBit)
     case MFGID_ISSI:                         /* ISSI SPI flash.  */
         spim_set_write_enable(1, u32NBit);   /* Write Enable.    */
         dataBuf[0] = isEn ? SR_QE : 0U;
-        SPIM_WriteStatusRegister(dataBuf, sizeof (dataBuf), u32NBit);
+        SPIM_WriteStatusRegister(dataBuf,u32NBit);
         spim_wait_write_done(u32NBit);
         break;
 
@@ -946,7 +946,7 @@ void SPIM_WinbondUnlock(uint32_t u32NBit)
     dataBuf[1] &= ~0x40;    /* clear Status Register-1 SEC bit */
 
     spim_set_write_enable(1, u32NBit);   /* Write Enable.    */
-    SPIM_WriteStatusRegister2(dataBuf, sizeof (dataBuf), u32NBit);
+    SPIM_WriteStatusRegister2(dataBuf,u32NBit);
     spim_wait_write_done(u32NBit);
 
     SPIM_ReadStatusRegister(&dataBuf[0], 1UL, u32NBit);

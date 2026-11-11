@@ -309,10 +309,7 @@ uint32_t TIMER_GetModuleClock(TIMER_T *timer)
   *          event frequency is mentioned as "Inter Timer Trigger Mode" in Technical
   *          Reference Manual
   */
-void TIMER_EnableFreqCounter(TIMER_T *timer,
-                             uint32_t u32DropCount,
-                             uint32_t u32Timeout,
-                             uint32_t u32EnableInt)
+void TIMER_EnableFreqCounter(TIMER_T *timer,uint32_t u32EnableInt)
 {
     TIMER_T *t;    /* store the timer base to configure compare value */
 

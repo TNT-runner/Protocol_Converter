@@ -453,7 +453,7 @@ __WEAK uint32_t ProcessHardFault(uint32_t lr, uint32_t msp, uint32_t psp)
 
 
     /* Or *sp to remove compiler warning */
-    while(1U | *sp) {}
+    while(1) {}
 
     return lr;
 }

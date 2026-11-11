@@ -551,7 +551,7 @@ extern "C"
 /*---------------------------------------------------------------------------------------------------------*/
 /* Define EPWM functions prototype                                                                          */
 /*---------------------------------------------------------------------------------------------------------*/
-uint32_t EPWM_ConfigCaptureChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32UnitTimeNsec, uint32_t u32CaptureEdge);
+uint32_t EPWM_ConfigCaptureChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32UnitTimeNsec);
 uint32_t EPWM_ConfigOutputChannel(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Frequency, uint32_t u32DutyCycle);
 void EPWM_Start(EPWM_T *epwm, uint32_t u32ChannelMask);
 void EPWM_Stop(EPWM_T *epwm, uint32_t u32ChannelMask);
@@ -560,12 +560,12 @@ void EPWM_EnableADCTrigger(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Con
 void EPWM_DisableADCTrigger(EPWM_T *epwm, uint32_t u32ChannelNum);
 int32_t EPWM_EnableADCTriggerPrescale(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Prescale, uint32_t u32PrescaleCnt);
 void EPWM_DisableADCTriggerPrescale(EPWM_T *epwm, uint32_t u32ChannelNum);
-void EPWM_ClearADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition);
+void EPWM_ClearADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum);
 uint32_t EPWM_GetADCTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum);
 void EPWM_EnableDACTrigger(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition);
 void EPWM_DisableDACTrigger(EPWM_T *epwm, uint32_t u32ChannelNum);
-void EPWM_ClearDACTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum, uint32_t u32Condition);
-uint32_t EPWM_GetDACTriggerFlag(EPWM_T *epwm, uint32_t u32ChannelNum);
+void EPWM_ClearDACTriggerFlag(EPWM_T *epwm);
+uint32_t EPWM_GetDACTriggerFlag(EPWM_T *epwm);
 void EPWM_EnableFaultBrake(EPWM_T *epwm, uint32_t u32ChannelMask, uint32_t u32LevelMask, uint32_t u32BrakeSource);
 void EPWM_EnableCapture(EPWM_T *epwm, uint32_t u32ChannelMask);
 void EPWM_DisableCapture(EPWM_T *epwm, uint32_t u32ChannelMask);
@@ -587,7 +587,7 @@ void EPWM_EnableFaultBrakeInt(EPWM_T *epwm, uint32_t u32BrakeSource);
 void EPWM_DisableFaultBrakeInt(EPWM_T *epwm, uint32_t u32BrakeSource);
 void EPWM_ClearFaultBrakeIntFlag(EPWM_T *epwm, uint32_t u32BrakeSource);
 uint32_t EPWM_GetFaultBrakeIntFlag(EPWM_T *epwm, uint32_t u32BrakeSource);
-void EPWM_EnablePeriodInt(EPWM_T *epwm, uint32_t u32ChannelNum,  uint32_t u32IntPeriodType);
+void EPWM_EnablePeriodInt(EPWM_T *epwm, uint32_t u32ChannelNum);
 void EPWM_DisablePeriodInt(EPWM_T *epwm, uint32_t u32ChannelNum);
 void EPWM_ClearPeriodIntFlag(EPWM_T *epwm, uint32_t u32ChannelNum);
 uint32_t EPWM_GetPeriodIntFlag(EPWM_T *epwm, uint32_t u32ChannelNum);

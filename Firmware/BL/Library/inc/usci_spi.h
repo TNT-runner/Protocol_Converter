@@ -401,7 +401,7 @@ void USPI_Close(USPI_T *uspi);
 void USPI_ClearRxBuf(USPI_T *uspi);
 void USPI_ClearTxBuf(USPI_T *uspi);
 void USPI_DisableAutoSS(USPI_T *uspi);
-void USPI_EnableAutoSS(USPI_T *uspi, uint32_t u32SSPinMask, uint32_t u32ActiveLevel);
+void USPI_EnableAutoSS(USPI_T *uspi,uint32_t u32ActiveLevel);
 uint32_t USPI_SetBusClock(USPI_T *uspi, uint32_t u32BusClock);
 uint32_t USPI_GetBusClock(USPI_T *uspi);
 void USPI_EnableInt(USPI_T *uspi, uint32_t u32Mask);
