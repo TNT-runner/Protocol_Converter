@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>CFG_TUSB_MCU=OPT_MCU_NUC505</Define>
+              <Define>CFG_TUSB_MCU=OPT_MCU_M463</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\Library\inc;..\User;..\ThirdParty\TinyUSB\hw\bsp;..\ThirdParty\TinyUSB\src;..\ThirdParty\TinyUSB\src\osal;..\ThirdParty\TinyUSB\src\device;..\ThirdParty\TinyUSB\src\common;..\ThirdParty\TinyUSB\src\class\cdc;..\ThirdParty\TinyUSB\hw\bsp\nuc505\boards\nutiny_sdk_nuc505</IncludePath>
+              <IncludePath>..\CMSIS;..\Library\inc;..\User;..\ThirdParty\TinyUSB\hw\bsp;..\ThirdParty\TinyUSB\src;..\ThirdParty\TinyUSB\src\osal;..\ThirdParty\TinyUSB\src\device;..\ThirdParty\TinyUSB\src\common;..\ThirdParty\TinyUSB\src\class\cdc;..\ThirdParty\TinyUSB\hw\bsp\m463\boards\nutiny_sdk_m463</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -696,11 +696,6 @@
               <FilePath>..\ThirdParty\TinyUSB\src\tusb.c</FilePath>
             </File>
             <File>
-              <FileName>dcd_nuc505.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ThirdParty\TinyUSB\src\portable\nuvoton\nuc505\dcd_nuc505.c</FilePath>
-            </File>
-            <File>
               <FileName>tusb_fifo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ThirdParty\TinyUSB\src\common\tusb_fifo.c</FilePath>
@@ -715,20 +710,25 @@
               <FileType>1</FileType>
               <FilePath>..\ThirdParty\TinyUSB\src\device\usbd.c</FilePath>
             </File>
+            <File>
+              <FileName>dcd_nuc463.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_nuc463.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>ThirdParty/TinyUSB/hw/bsp</GroupName>
           <Files>
             <File>
-              <FileName>family.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ThirdParty\TinyUSB\hw\bsp\nuc505\family.c</FilePath>
-            </File>
-            <File>
               <FileName>board.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ThirdParty\TinyUSB\hw\bsp\board.c</FilePath>
+            </File>
+            <File>
+              <FileName>family.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ThirdParty\TinyUSB\hw\bsp\m463\family.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -35,7 +35,7 @@
 
 #include "tusb_option.h"
 
-#if CFG_TUD_ENABLED && (CFG_TUSB_MCU == OPT_MCU_NUC505)
+#if CFG_TUD_ENABLED && (CFG_TUSB_MCU == OPT_MCU_M463)
 
 #include "device/dcd.h"
 

@@ -122,6 +122,10 @@
 #define OPT_MCU_NUC126            801
 #define OPT_MCU_NUC120            802
 #define OPT_MCU_NUC505            803
+#define OPT_MCU_M031            	804
+#define OPT_MCU_M2L31            	805
+#define OPT_MCU_M487            	806
+#define OPT_MCU_M463            	807
 
 // Espressif
 #define OPT_MCU_ESP32S2           900 ///< Espressif ESP32-S2
