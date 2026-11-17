@@ -31,8 +31,8 @@
  extern "C" {
 #endif
 
-#define LED_PORT     PC
-#define LED_PIN      3
+#define LED_PORT     PA
+#define LED_PIN      10
 #define LED_STATE_ON 0
 
 #ifdef __cplusplus

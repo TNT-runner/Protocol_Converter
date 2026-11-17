@@ -59,7 +59,7 @@ int main(void) {
 
   while (1) {
     tud_task(); // tinyusb device task
-//    led_blinking_task();
+    led_blinking_task();
 
     cdc_task();
   }
@@ -77,6 +77,7 @@ void tud_mount_cb(void) {
 // Invoked when device is unmounted
 void tud_umount_cb(void) {
   blink_interval_ms = BLINK_NOT_MOUNTED;
+	blink_enable = true;
 }
 
 // Invoked when usb bus is suspended

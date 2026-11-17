@@ -711,9 +711,9 @@
               <FilePath>..\ThirdParty\TinyUSB\src\device\usbd.c</FilePath>
             </File>
             <File>
-              <FileName>dcd_nuc463.c</FileName>
+              <FileName>dcd_m463.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_nuc463.c</FilePath>
+              <FilePath>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_m463.c</FilePath>
             </File>
           </Files>
         </Group>
