@@ -826,8 +826,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\ThirdParty\TinyUSB\src\class\cdc\cdc_device.c</PathWithFileName>
-      <FilenameWithoutPath>cdc_device.c</FilenameWithoutPath>
+      <PathWithFileName>..\ThirdParty\TinyUSB\src\device\usbd.c</PathWithFileName>
+      <FilenameWithoutPath>usbd.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -838,8 +838,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\ThirdParty\TinyUSB\src\device\usbd.c</PathWithFileName>
-      <FilenameWithoutPath>usbd.c</FilenameWithoutPath>
+      <PathWithFileName>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_m463.c</PathWithFileName>
+      <FilenameWithoutPath>dcd_m463.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -850,8 +850,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_m463.c</PathWithFileName>
-      <FilenameWithoutPath>dcd_m463.c</FilenameWithoutPath>
+      <PathWithFileName>..\ThirdParty\TinyUSB\src\class\msc\msc_device.c</PathWithFileName>
+      <FilenameWithoutPath>msc_device.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

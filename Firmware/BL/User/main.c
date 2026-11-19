@@ -45,7 +45,6 @@ static uint32_t blink_interval_ms = BLINK_NOT_MOUNTED;
 static bool     blink_enable      = true;
 
 void led_blinking_task(void);
-void cdc_task(void);
 
 /*------------- MAIN -------------*/
 int main(void) {
@@ -60,8 +59,6 @@ int main(void) {
   while (1) {
     tud_task(); // tinyusb device task
     led_blinking_task();
-
-    cdc_task();
   }
 }
 
@@ -91,45 +88,6 @@ void tud_suspend_cb(bool remote_wakeup_en) {
 // Invoked when usb bus is resumed
 void tud_resume_cb(void) {
   blink_interval_ms = tud_mounted() ? BLINK_MOUNTED : BLINK_NOT_MOUNTED;
-}
-
-
-//--------------------------------------------------------------------+
-// USB CDC
-//--------------------------------------------------------------------+
-void cdc_task(void) {
-  // connected() check for DTR bit
-  // Most but not all terminal client set this when making connection
-  // if ( tud_cdc_connected() )
-  {
-    // connected and there are data available
-    if (tud_cdc_available()) {
-      // read data
-      char     buf[64];
-      uint32_t count = tud_cdc_read(buf, sizeof(buf));
-      (void)count;
-
-      // Echo back
-      // Note: Skip echo by commenting out write() and write_flush()
-      // for throughput test e.g
-      //    $ dd if=/dev/zero of=/dev/ttyACM0 count=10000
-      tud_cdc_write(buf, count);
-      tud_cdc_write_flush();
-    }
-
-    // Press on-board button to send Uart status notification
-    static cdc_notify_uart_state_t uart_state = {.value = 0};
-
-    static uint32_t btn_prev = 0;
-    const uint32_t  btn      = board_button_read();
-
-    if ((btn_prev == 0u) && (btn != 0u)) {
-      uart_state.dsr ^= 1;
-      uart_state.dcd ^= 1;
-      tud_cdc_notify_uart_state(&uart_state);
-    }
-    btn_prev = btn;
-  }
 }
 
 // Invoked when cdc when line state changed e.g connected/disconnected

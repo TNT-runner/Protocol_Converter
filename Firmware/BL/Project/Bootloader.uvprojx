@@ -701,11 +701,6 @@
               <FilePath>..\ThirdParty\TinyUSB\src\common\tusb_fifo.c</FilePath>
             </File>
             <File>
-              <FileName>cdc_device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ThirdParty\TinyUSB\src\class\cdc\cdc_device.c</FilePath>
-            </File>
-            <File>
               <FileName>usbd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ThirdParty\TinyUSB\src\device\usbd.c</FilePath>
@@ -714,6 +709,11 @@
               <FileName>dcd_m463.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ThirdParty\TinyUSB\src\portable\nuvoton\m463\dcd_m463.c</FilePath>
+            </File>
+            <File>
+              <FileName>msc_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ThirdParty\TinyUSB\src\class\msc\msc_device.c</FilePath>
             </File>
           </Files>
         </Group>
